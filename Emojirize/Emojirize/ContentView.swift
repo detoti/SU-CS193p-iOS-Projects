@@ -11,11 +11,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var emojis = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🚲","🛵","🏍️","🛺","✈️","🛩️","🚀","🛸","🚁","🛶","🚤","🚢"]
-    @State var emojiCount = 4
+    @State var emojis = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🚲","🛵","🏍️","🛺","✈️","🛩️","🚀","🛸","🚁","🛶","🚤","🚢"]
+    
+    @State var emojiCount = 8
     
     var body: some View {
+    
         VStack {
+            Text("Emojirize!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))]) {
                     ForEach(emojis[0..<emojiCount], id:\.self) { emoji in
@@ -27,6 +33,12 @@ struct ContentView: View {
             .foregroundColor(.red)
             Spacer()
             HStack {
+                vehicles
+                Spacer()
+                fruits
+                Spacer()
+                animals
+                
                 remove
                 Spacer()
                 add
@@ -34,10 +46,47 @@ struct ContentView: View {
             .padding(.horizontal)
         }
         .padding(.horizontal)
-        
     }
     
-    //MARK: Buttons
+    //MARK: Buttons Themes
+    
+    var vehicles: some View {
+        Button {
+            emojis = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🚲","🛵","🏍️","🛺","✈️","🛩️","🚀","🛸","🚁","🛶","🚤","🚢"]
+        } label: {
+            VStack {
+                Image(systemName: "car.circle")
+                    .font(.largeTitle)
+                Text("Vehicles")
+            }
+        }
+    }
+    var fruits: some View {
+        Button {
+            emojis = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝"]
+            
+        } label: {
+            VStack {
+                Image(systemName: "fork.knife.circle")
+                    .font(.largeTitle)
+                Text("Fruits")
+            }
+        }
+    }
+    var animals: some View {
+        Button {
+            emojis = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄️","🐨","🐯","🦁","🐮","🐷","🐸","🐵"]
+        } label: {
+            VStack {
+                Image(systemName: "pawprint.circle")
+                    .font(.largeTitle)
+                Text("Animals")
+                    
+            }
+        }
+    }
+    
+    //MARK: Buttons + and -
         var remove: some View {
             Button {
                 if emojiCount > 1 {
