@@ -32,80 +32,10 @@ struct ContentView: View {
             }
             .foregroundColor(.red)
             Spacer()
-            HStack {
-                vehicles
-                Spacer()
-                fruits
-                Spacer()
-                animals
-                
-                remove
-                Spacer()
-                add
-            }
+
             .padding(.horizontal)
         }
         .padding(.horizontal)
-    }
-    
-    //MARK: Buttons Themes
-    
-    var vehicles: some View {
-        Button {
-            emojis = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🚲","🛵","🏍️","🛺","✈️","🛩️","🚀","🛸","🚁","🛶","🚤","🚢"]
-        } label: {
-            VStack {
-                Image(systemName: "car.circle")
-                    .font(.largeTitle)
-                Text("Vehicles")
-            }
-        }
-    }
-    var fruits: some View {
-        Button {
-            emojis = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝"]
-            
-        } label: {
-            VStack {
-                Image(systemName: "fork.knife.circle")
-                    .font(.largeTitle)
-                Text("Fruits")
-            }
-        }
-    }
-    var animals: some View {
-        Button {
-            emojis = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄️","🐨","🐯","🦁","🐮","🐷","🐸","🐵"]
-        } label: {
-            VStack {
-                Image(systemName: "pawprint.circle")
-                    .font(.largeTitle)
-                Text("Animals")
-                    
-            }
-        }
-    }
-    
-    //MARK: Buttons + and -
-        var remove: some View {
-            Button {
-                if emojiCount > 1 {
-                    emojiCount -= 1
-                }
-            } label: {
-                Image(systemName: "minus.circle")
-                    .font(.largeTitle)
-            }
-        }
-        var add: some View {
-            Button {
-                if emojiCount < emojis.count {
-                    emojiCount += 1
-                }
-            } label: {
-                Image(systemName: "plus.circle")
-                    .font(.largeTitle)
-        }
     }
 }
     //MARK: Cards
@@ -124,7 +54,12 @@ struct CardView: View {
                 Text(content)
                     .font(.largeTitle)
             } else {
-                shape.fill()
+                ZStack {
+                    shape.fill()
+                    Image(systemName: "car.2")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                }
             }
         }
         .onTapGesture {
