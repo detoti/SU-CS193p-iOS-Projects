@@ -14,25 +14,25 @@ struct EmojirizeGameView: View {
     
     var body: some View {
         VStack {
-            Text("Emojirize!")
+            Text("--== Emojirize ==--")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .foregroundColor(Color(red: 0.1, green: 0.3, blue: 0.5))
             
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-                    ForEach(game.cards) { card in
-                        CardView(card: card)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                game.choose(card)
-                            }
-                    }
+            AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
+                if card.isMatched && !card.isFaceUp {
+                    Rectangle().opacity(0)
+                } else {
+                    CardView(card: card)
+                        .padding(4)
+                        .onTapGesture {
+                            game.choose(card)
+                        }
                 }
             }
-            .foregroundColor(.red)
-            Spacer()
         }
         .padding(.horizontal)
+        .background(Color(red: 0.4, green: 0.6, blue: 0.8))
     }
 }
     //MARK: Cards
@@ -45,18 +45,24 @@ struct CardView: View {
             ZStack {
                 let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
                 if card.isFaceUp {
-                    shape.fill(.white)
-                    shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
+                    shape.fill(Color(red: 0.2, green: 0.4, blue: 0.6))
+                    shape.strokeBorder(Color(red: 0.1, green: 0.3, blue: 0.5), lineWidth: DrawingConstants.lineWidth)
+                        .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 5)
+                    Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 120-90))
+                        .foregroundColor(Color(red: 0.3, green: 0.5, blue: 0.7))
+                        .padding(2)
+                        .opacity(0.7)
                     Text(card.content)
                         .font(font(in: geometry.size))
                 } else if card.isMatched {
                     shape.opacity(0)
                 } else {
                     ZStack {
-                        shape.fill()
+                        shape.fill(Color(red: 0.1, green: 0.3, blue: 0.5))
+                            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 5)
                         Image(systemName: "car.2")
                             .font(.largeTitle)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(red: 0.6, green: 0.8, blue: 1.0))
                     }
                 }
             }
@@ -70,7 +76,7 @@ struct CardView: View {
     private struct DrawingConstants {
         static let cornerRadius: CGFloat = 10
         static let lineWidth: CGFloat = 3
-        static let fontScale: CGFloat = 0.8
+        static let fontScale: CGFloat = 0.7
     }
 }
 
