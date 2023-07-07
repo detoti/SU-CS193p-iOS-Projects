@@ -12,6 +12,7 @@
 		50AEBA112A4A40CD00B6BDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AEBA102A4A40CD00B6BDC9 /* Assets.xcassets */; };
 		50AEBA142A4A40CD00B6BDC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AEBA132A4A40CD00B6BDC9 /* Preview Assets.xcassets */; };
 		50CE770D2A56F3E2003C1234 /* PieShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CE770C2A56F3E2003C1234 /* PieShape.swift */; };
+		50CE770F2A570474003C1234 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CE770E2A570474003C1234 /* Cardify.swift */; };
 		50DC3E9E2A4CB52900BA59F2 /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DC3E9D2A4CB52900BA59F2 /* MemoryGameModel.swift */; };
 		50DD415A2A4DB4D9001E9290 /* MemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD41592A4DB4D9001E9290 /* MemoryGameViewModel.swift */; };
 		50E2B7482A55F37F007EBF70 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2B7472A55F37F007EBF70 /* AspectVGrid.swift */; };
@@ -24,6 +25,7 @@
 		50AEBA102A4A40CD00B6BDC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AEBA132A4A40CD00B6BDC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50CE770C2A56F3E2003C1234 /* PieShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieShape.swift; sourceTree = "<group>"; };
+		50CE770E2A570474003C1234 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		50DC3E9D2A4CB52900BA59F2 /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
 		50DD41592A4DB4D9001E9290 /* MemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameViewModel.swift; sourceTree = "<group>"; };
 		50E2B7472A55F37F007EBF70 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				50DD41592A4DB4D9001E9290 /* MemoryGameViewModel.swift */,
 				50E2B7472A55F37F007EBF70 /* AspectVGrid.swift */,
 				50CE770C2A56F3E2003C1234 /* PieShape.swift */,
+				50CE770E2A570474003C1234 /* Cardify.swift */,
 				50AEBA102A4A40CD00B6BDC9 /* Assets.xcassets */,
 				50AEBA122A4A40CD00B6BDC9 /* Preview Content */,
 			);
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AEBA0F2A4A40CC00B6BDC9 /* EmojirizeGameView.swift in Sources */,
+				50CE770F2A570474003C1234 /* Cardify.swift in Sources */,
 				50AEBA0D2A4A40CC00B6BDC9 /* EmojirizeApp.swift in Sources */,
 				50DC3E9E2A4CB52900BA59F2 /* MemoryGameModel.swift in Sources */,
 				50E2B7482A55F37F007EBF70 /* AspectVGrid.swift in Sources */,
@@ -289,7 +293,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +308,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,7 +326,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,7 +341,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
