@@ -12,6 +12,7 @@ import SwiftUI
 struct EmojirizeGameView: View {
     @ObservedObject var game: MemoryGameViewModel
     @Namespace private var dealingNameSpace
+
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -41,12 +42,12 @@ struct EmojirizeGameView: View {
     }
     
     private func dealAnimation(for card: MemoryGameViewModel.Card) -> Animation {
-        var delay = 0.0
-        if let index = game.cards.firstIndex(where: { $0.id == card.id}) {
-            delay = Double(index) * (CardConstants.totalDealDuration / Double(game.cards.count))
+            var delay = 0.0
+            if let index = game.cards.firstIndex(where: { $0.id == card.id}) {
+                delay = Double(index) * (CardConstants.totalDealDuration / Double(game.cards.count))
+            }
+            return Animation.easeInOut(duration: CardConstants.dealDuration).delay(delay)
         }
-        return Animation.easeInOut(duration: CardConstants.dealDuration).delay(delay)
-    }
     
     private func zIndex(of card: MemoryGameViewModel.Card) -> Double {
         -Double(game.cards.firstIndex(where: { $0.id == card.id }) ?? 0)
@@ -129,6 +130,7 @@ struct CardView: View {
     let card: MemoryGameViewModel.Card
     
     @State private var animatedBonusRemaining: Double = 0
+    @State private var isFaceUpTemp = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -154,8 +156,6 @@ struct CardView: View {
                     .font(Font.system(size: DrawingConstants.fontSize))
                     .scaleEffect(scale(thatfits: geometry.size))
             }
-            .cardify(isFaceUp: card.isFaceUp)
-            
         }
     }
     
